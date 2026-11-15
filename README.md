@@ -26,3 +26,7 @@ Fuentes:
 - Wikiwiki (JP): https://wikiwiki.jp/wiz_daphne/モンスター
 - Gamerch (JP): https://gamerch.com/wizardry-daphne/913125
 - Guía comunitaria en inglés: https://wizardry.fasterthoughts.io/abyss-guides/1-beginning-abyss/maps/
+
+## Fuentes y créditos
+
+Todo el origen de los datos está documentado en [`FUENTES.md`](FUENTES.md).
