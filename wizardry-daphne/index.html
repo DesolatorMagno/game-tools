@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wizardry Daphne · Dónde cazar</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Wizardry Variants Daphne</h1>
+  <p class="sub">¿Dónde cazar cada tipo de monstruo?</p>
+</header>
+
+<main>
+  <section class="selector" aria-label="Tipo de monstruo">
+    <label class="progreso">Mi progreso en la historia:
+      <select id="progreso"></select>
+    </label>
+    <label class="progreso">Exámenes de grado aprobados:
+      <select id="examen"></select>
+    </label>
+    <div class="pestanas" role="tablist">
+      <button type="button" class="pestana" role="tab" data-panel="panel-raza" aria-selected="true">Por raza</button>
+      <button type="button" class="pestana" role="tab" data-panel="panel-monstruo" aria-selected="false">Monstruo específico</button>
+    </div>
+  </section>
+
+  <div id="panel-raza" class="panel">
+    <div id="razas" class="razas"></div>
+    <section id="resultado" class="resultado" aria-live="polite">
+      <p class="vacio">Elige un tipo de monstruo para ver dónde suele aparecer.</p>
+    </section>
+  </div>
+
+  <div id="panel-monstruo" class="panel" hidden>
+    <input id="buscar" class="buscar" type="search" placeholder="Buscar monstruo (inglés o japonés): goblin, vorpal, スケルトン…" autocomplete="off">
+    <div id="lista-monstruos" class="razas"></div>
+    <section id="detalle-monstruo" class="resultado" aria-live="polite"></section>
+  </div>
+
+  <section id="dens" class="resultado dens"></section>
+</main>
+
+<footer>
+  <p>Datos de <a href="https://wikiwiki.jp/wiz_daphne/%E3%83%A2%E3%83%B3%E3%82%B9%E3%82%BF%E3%83%BC">Wikiwiki</a> (JP) y de la <a href="https://wizardry.fasterthoughts.io/abyss-guides/1-beginning-abyss/maps/">guía de fasterthoughts.io</a> (nombres globales, orden de la historia y Dens) · <span id="fuente"></span>.
+  Los nombres en inglés marcados como «probable» son deducciones, no están confirmados. Son datos orientativos: los grupos de enemigos varían.</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="monstruos.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
