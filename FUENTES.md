@@ -21,9 +21,9 @@ Dentro de la guía de fasterthoughts.io se consultaron estas secciones: Beginnin
 |---|---|
 | [HostedGG: Reverse: 1999 Wiki](https://hostedgg.com/wiki/reverse-1999/) (EN, fichas leídas el 2026-11-15) | Afflatus, tipo de daño y etiquetas de rol de unos 100 personajes de 5★ y 6★ |
 | Guías de fans: [allthings.how (Coppélia)](https://allthings.how/how-to-build-coppelia-in-reverse-1999-skills-psychubes-teams/), [Prydwen (Coppélia)](https://prydwen.gg/re1999/characters/coppelia), [allthings.how (The Twins)](https://allthings.how/reverse-1999-how-to-build-the-twins-the-first-dual-afflatus-arcanist/) | Datos de Coppélia y The Twins, que no están en HostedGG |
-| [Prydwen: The Twins](https://www.prydwen.gg/re1999/characters/the-twins) (la web bloquea la descarga automática; se consultó por resumen de búsqueda) | Afflatus de The Twins (Mineral; el segundo, Star, viene de allthings.how) |
+| [Prydwen: The Twins](https://www.prydwen.gg/re1999/characters/the-twins) (la web bloquea la descarga automática; se consultó por resumen de búsqueda) | Afflatus de The Twins (Mineral) |
 
-Se leyeron datos factuales (atributos de personajes); no se copió arte ni textos. Los personajes de las versiones 3.8 y 3.9 (Everecho, Cornerstone, Hedone y Narcissus) no traen tipo de daño en la fuente, y The Twins tiene Afflatus doble (Mineral + Star según Prydwen y allthings.how) por confirmar en el juego. Los cuatro personajes recientes están marcados para completar a mano.
+Se leyeron datos factuales (atributos de personajes); no se copió arte ni textos. Los personajes de las versiones 3.8 y 3.9 (Everecho, Cornerstone, Hedone y Narcissus) no traen tipo de daño en la fuente, y The Twins está como Mineral, tipo Reality, según Prydwen (una guía de fans menciona además un efecto como Star, sin confirmar como segundo Afflatus). Los cuatro personajes recientes están marcados para completar a mano.
 
 La colección personal (qué personajes tengo y mis equipos) NO está en el repositorio: vive en `reverse-1999/mis-personajes.js`, que está en `.gitignore`.
 
