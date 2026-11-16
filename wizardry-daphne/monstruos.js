@@ -2,8 +2,8 @@
 //
 // Base generada el 2026-11-15 desde Gamerch (lista de "principales" lugares; cada fila termina en "…など",
 // o sea que NO es exhaustiva): https://gamerch.com/wizardry-daphne/913125
-// Nombres en inglés: el compendio del propio juego (lista que pasó el usuario, transcrita con OCR de Gemini,
-// puede tener errores) cruzado por número de bestiario con Gamerch; los de monstruos que el usuario aún no ha
+// Nombres en inglés: el compendio del propio juego (lista que pasó el usuario, transcrita con OCR de Gemini y
+// revisada por él contra las capturas el 2026-11-16) cruzado por número de bestiario con Gamerch; los de monstruos que el usuario aún no ha
 // visto salen de la wiki en inglés (wiki.gg) o de la guía de fasterthoughts.io.
 // Más adiciones manuales: guía https://wizardry.fasterthoughts.io (exámenes, Dens), Wikiwiki (pixies) y
 // lo que el usuario ha visto jugando (esqueletos en el Lead Exam).
