@@ -22,8 +22,15 @@
 
   <section id="p-coleccion" class="panel">
     <p class="meta" id="resumen-coleccion"></p>
+    <details id="matriz" class="matriz-caja" open>
+      <summary>Resumen de huecos: cuántos tienes de cada Afflatus y rol principal</summary>
+      <div id="matriz-cuerpo"></div>
+      <p class="meta">En rojo, ninguno; en ámbar, solo uno. «Rol principal» es la primera etiqueta de la fuente.</p>
+    </details>
     <div class="filtros">
       <input id="buscar" type="search" placeholder="Buscar personaje…" autocomplete="off">
+      <select id="f-vista" aria-label="Vista"><option value="lista" selected>Lista compacta</option><option value="tarjetas">Tarjetas</option></select>
+      <select id="f-grupo" aria-label="Agrupar por"><option value="">Sin agrupar</option><option value="afflatus" selected>Agrupar por Afflatus</option><option value="rol">Agrupar por rol</option><option value="rareza">Agrupar por rareza</option></select>
       <select id="f-afflatus"><option value="">Todos los Afflatus</option></select>
       <select id="f-estado">
         <option value="">Tengo y no tengo</option>

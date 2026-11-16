@@ -90,37 +90,128 @@
   const cuadricula = document.getElementById("cuadricula");
   const fAff = document.getElementById("f-afflatus");
   const fEstado = document.getElementById("f-estado");
+  const fVista = document.getElementById("f-vista");
+  const fGrupo = document.getElementById("f-grupo");
   const buscar = document.getElementById("buscar");
+  const matriz = document.getElementById("matriz-cuerpo");
   for (const a of AFFLATUS) fAff.append(new Option(a, a));
+  const K_VISTA = "r99-vista";
+  const gv = leer(K_VISTA);
+  if (gv && gv.vista) fVista.value = gv.vista;
+  if (gv && gv.grupo != null) fGrupo.value = gv.grupo;
+
+  function alternar(p) {
+    if (tengo.has(p.n)) tengo.delete(p.n); else tengo.add(p.n);
+    guardar(K_TENGO, [...tengo]);
+    const y = window.scrollY;
+    pintarColeccion();
+    window.scrollTo(0, y);
+  }
+
+  function pintarTarjeta(p) {
+    const b = el("button", "pj A-" + p.a);
+    b.type = "button";
+    b.setAttribute("aria-pressed", tengo.has(p.n) ? "true" : "false");
+    b.append(el("span", "nom", p.n));
+    const s = el("small");
+    s.append(el("span", "af", p.a || "Afflatus ?"), ` · ${p.d || "daño ?"} · ${p.e}★`);
+    b.append(s);
+    b.append(el("small", "", p.r.slice(0, 3).join(", ")));
+    if (p.c) b.title = p.c;
+    b.addEventListener("click", () => alternar(p));
+    return b;
+  }
+
+  function filaLista(p) {
+    const tr = el("tr", "A-" + p.a + (tengo.has(p.n) ? " tengo" : ""));
+    const td0 = el("td", "chk");
+    const cb = document.createElement("input");
+    cb.type = "checkbox"; cb.checked = tengo.has(p.n);
+    cb.setAttribute("aria-label", "Tengo a " + p.n);
+    td0.append(cb);
+    tr.append(td0, el("td", "nom", p.n), el("td", "", p.e + "★"), el("td", "af", p.a || "?"), el("td", "", p.d || "?"), el("td", "rol", p.r.slice(0, 3).join(", ")));
+    if (p.c) tr.title = p.c;
+    tr.addEventListener("click", ev => { if (ev.target !== cb) alternar(p); });
+    cb.addEventListener("change", () => alternar(p));
+    return tr;
+  }
+
+  function tablaLista(lista) {
+    const t = el("table", "lista");
+    const cab = el("thead"), fr = el("tr");
+    ["Tengo", "Personaje", "Rareza", "Afflatus", "Daño", "Rol"].forEach(h => fr.append(el("th", "", h)));
+    cab.append(fr); t.append(cab);
+    const cuerpo = el("tbody");
+    lista.forEach(p => cuerpo.append(filaLista(p)));
+    t.append(cuerpo);
+    return t;
+  }
+
+  const CLAVE_GRUPO = {
+    "afflatus": p => p.a || "Afflatus sin confirmar",
+    "rol": p => categoriaPrincipal(p) || "Sin rol clasificado",
+    "rareza": p => p.e + "★"
+  };
+
+  // Matriz Afflatus × rol principal: cuántos tienes de cuántos existen.
+  function pintarMatriz() {
+    const filas = AFFLATUS.concat([null]);
+    const t = el("table", "matriz");
+    const cab = el("tr"); cab.append(el("th", "", ""));
+    ROLES.forEach(r => cab.append(el("th", "", r))); cab.append(el("th", "", "Total"));
+    t.append(cab);
+    for (const a of filas) {
+      const tr = el("tr", "A-" + a);
+      tr.append(el("th", "af", a || "Sin confirmar"));
+      let tt = 0, th = 0;
+      for (const r of ROLES) {
+        const todos = PJ.filter(p => p.a === a && categoriaPrincipal(p) === r);
+        const mios = todos.filter(p => tengo.has(p.n));
+        tt += todos.length; th += mios.length;
+        const td = el("td", !todos.length ? "vacia" : mios.length === 0 ? "cero" : mios.length === 1 ? "poco" : "", todos.length ? `${mios.length}/${todos.length}` : "–");
+        tr.append(td);
+      }
+      const todosA = PJ.filter(p => p.a === a);
+      tr.append(el("td", "total", `${todosA.filter(p => tengo.has(p.n)).length}/${todosA.length}`));
+      t.append(tr);
+    }
+    matriz.replaceChildren(t);
+  }
 
   function pintarColeccion() {
     const q = buscar.value.trim().toLowerCase();
     const lista = PJ.filter(p =>
       (!q || p.n.toLowerCase().includes(q)) &&
       (!fAff.value || p.a === fAff.value) &&
-      (!fEstado.value || (fEstado.value === "si") === tengo.has(p.n)));
+      (!fEstado.value || (fEstado.value === "si") === tengo.has(p.n)))
+      .sort((x, y) => y.e - x.e || x.n.localeCompare(y.n));
     cuadricula.replaceChildren();
-    for (const p of lista) {
-      const b = el("button", "pj A-" + p.a);
-      b.type = "button";
-      b.setAttribute("aria-pressed", tengo.has(p.n) ? "true" : "false");
-      b.append(el("span", "nom", p.n));
-      const s = el("small");
-      s.append(el("span", "af", p.a || "Afflatus ?"), ` · ${p.d || "daño ?"} · ${p.e}★`);
-      b.append(s);
-      b.append(el("small", "", p.r.slice(0, 3).join(", ")));
-      if (p.c) b.title = p.c;
-      b.addEventListener("click", () => {
-        if (tengo.has(p.n)) tengo.delete(p.n); else tengo.add(p.n);
-        guardar(K_TENGO, [...tengo]);
-        pintarColeccion();
-      });
-      cuadricula.append(b);
+    cuadricula.className = fVista.value === "lista" ? "" : "cuadricula";
+    const clave = CLAVE_GRUPO[fGrupo.value];
+    const grupos = new Map();
+    for (const p of lista) { const k = clave ? clave(p) : ""; if (!grupos.has(k)) grupos.set(k, []); grupos.get(k).push(p); }
+    const orden = [...grupos.keys()];
+    if (fGrupo.value === "afflatus") orden.sort((x, y) => (AFFLATUS.indexOf(x) + 99) % 99 - (AFFLATUS.indexOf(y) + 99) % 99);
+    for (const k of orden) {
+      const ps = grupos.get(k);
+      if (clave) {
+        const mios = ps.filter(p => tengo.has(p.n)).length;
+        cuadricula.append(el("h3", "grupo", `${k} · tienes ${mios} de ${ps.length}`));
+      }
+      if (fVista.value === "lista") cuadricula.append(tablaLista(ps));
+      else {
+        const g = el("div", "cuadricula");
+        ps.forEach(p => g.append(pintarTarjeta(p)));
+        cuadricula.append(g);
+      }
     }
+    if (!lista.length) cuadricula.append(el("p", "meta", "Ningún personaje coincide con los filtros."));
     document.getElementById("resumen-coleccion").textContent =
       `Tienes ${tengo.size} de ${PJ.length} personajes. Mostrando ${lista.length}.`;
+    pintarMatriz();
   }
   [buscar, fAff, fEstado].forEach(x => x.addEventListener("input", pintarColeccion));
+  [fVista, fGrupo].forEach(x => x.addEventListener("input", () => { guardar(K_VISTA, { vista: fVista.value, grupo: fGrupo.value }); pintarColeccion(); }));
   document.getElementById("restablecer").addEventListener("click", () => {
     if (!window.MIS) { alert("No encontré mis-personajes.js, no hay nada a lo que restablecer."); return; }
     if (!confirm("Esto reemplaza tu colección y equipos guardados en este navegador por los de mis-personajes.js. ¿Seguir?")) return;
