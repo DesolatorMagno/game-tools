@@ -3,16 +3,66 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Herramientas de juegos</title>
-<style>
-  body { font-family: system-ui, sans-serif; background: #111; color: #eee; max-width: 600px; margin: 40px auto; padding: 0 16px; }
-  a { color: #8ab4f8; font-size: 1.2rem; }
-</style>
+<title>Game Tools · Herramientas para mis juegos</title>
+<link rel="stylesheet" href="hub.css">
 </head>
 <body>
-<h1>Herramientas de juegos</h1>
-<ul>
-  <li><a href="wizardry-daphne/">Wizardry Variants Daphne</a></li>
-</ul>
+<header class="barra">
+  <a class="marca" href="./">Game&nbsp;Tools</a>
+  <nav aria-label="Secciones">
+    <a href="#nuevos">Nuevo</a>
+    <a href="#juegos">Juegos</a>
+    <a href="FUENTES.md">Fuentes</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>Herramientas para mis juegos</h1>
+    <p>Guías interactivas hechas a medida: lo que necesito saber mientras juego, filtrado por mi progreso.</p>
+  </section>
+
+  <section id="nuevos" aria-labelledby="t-nuevos">
+    <h2 id="t-nuevos">Nuevo</h2>
+    <a class="destacado daphne" href="wizardry-daphne/">
+      <span class="insignia">Disponible</span>
+      <div class="destacado-texto">
+        <h3>Wizardry Variants Daphne</h3>
+        <p>Elige un tipo de monstruo, o uno concreto, y mira dónde cazarlo. Se filtra por tu progreso en la historia y por los exámenes de grado que ya aprobaste.</p>
+        <ul class="etiquetas">
+          <li>Dónde cazar</li><li>Monstruos</li><li>Dens</li><li>Exámenes</li>
+        </ul>
+      </div>
+    </a>
+  </section>
+
+  <section id="juegos" aria-labelledby="t-juegos">
+    <h2 id="t-juegos">Juegos</h2>
+    <div class="rejilla">
+      <a class="tarjeta daphne" href="wizardry-daphne/">
+        <div class="portada"><span class="sigla">WVD</span></div>
+        <div class="cuerpo">
+          <h3>Wizardry Variants Daphne</h3>
+          <p>Dónde cazar cada monstruo.</p>
+          <span class="insignia chica">Disponible</span>
+        </div>
+      </a>
+
+      <div class="tarjeta reverse proximamente" aria-disabled="true">
+        <div class="portada"><span class="sigla">R:1999</span></div>
+        <div class="cuerpo">
+          <h3>Reverse: 1999</h3>
+          <p>Armador de equipos con los personajes que tengo.</p>
+          <span class="insignia chica gris">Próximamente</span>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>Proyecto personal, sin fines de lucro y sin relación con los creadores de los juegos. Los datos vienen de wikis y guías de la comunidad; cada fuente está citada en <a href="FUENTES.md">FUENTES.md</a>.
+  Código en <a href="https://github.com/DesolatorMagno/game-tools">GitHub</a>.</p>
+</footer>
 </body>
 </html>
