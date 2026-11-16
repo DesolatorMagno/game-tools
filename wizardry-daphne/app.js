@@ -108,6 +108,8 @@
     }
     detalleMonstruo.append(el("h2", "", m.en ? `${m.en} · ${m.jp}` : m.jp));
     if (m.probable) detalleMonstruo.append(el("p", "aviso", "El nombre en inglés es una deducción, sin confirmar en el juego."));
+    if (m.no) detalleMonstruo.append(el("p", "monstruos", "Compendio: n.º " + m.no));
+    if (m.v && m.v.length) detalleMonstruo.append(el("p", "monstruos", "Variantes: " + m.v.join(", ")));
     const raza = razas.find(r => r.id === m.raza);
     detalleMonstruo.append(el("p", "monstruos", raza ? `Raza: ${raza.en} (${raza.jp})` : "Raza: la fuente no la indica"));
     if (m.especial) detalleMonstruo.append(el("p", "aviso", "Monstruo importante (jefe o especial), no un enemigo común."));
@@ -120,7 +122,7 @@
   function pintarListaMonstruos() {
     const q = norm(buscador.value.trim());
     const filtrados = monstruos
-      .filter(m => !q || norm(m.en).includes(q) || norm(m.jp).includes(q))
+      .filter(m => !q || norm(m.en).includes(q) || norm(m.jp).includes(q) || (m.v || []).some(x => norm(x).includes(q)))
       .sort((a, b) => nombre(a).localeCompare(nombre(b), "en"));
     listaMonstruos.replaceChildren();
     for (const m of filtrados) {

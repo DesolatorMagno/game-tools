@@ -132,7 +132,7 @@ window.DATA = {
       id: "planta", jp: "植物", en: "Plant",
       monstruos: ["ヒドラプラント"],
       lugares: [
-        { jp: "ヴァレオン大草原", etapa: null, tipo: null, nota: "Símbolo de slime" },
+        { jp: "ヴァレオン大草原", en: "Valeon Grasslands", etapa: null, tipo: null, nota: "Símbolo de slime" },
         { jp: "百花の庭", en: "Pixie and the Secret Garden (event)", probable: true, etapa: null, tipo: "evento", nota: "Conviene elegir ［ユリ］ al aceptar" },
         { jp: "", en: "Iron Exam", etapa: null, tipo: "examen", examen: 3, nota: "El jefe es un Hydra Plant (débil al aire); empieza con enemigos extra pero no invoca más" },
         { jp: "", en: "Den of Earth", etapa: 1, tipo: "den", nota: "Jefe final: Hydra Plant (tipo tierra, débil al aire). Mini jefe: Big Slime" }

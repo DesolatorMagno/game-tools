@@ -2,11 +2,16 @@
 //
 // Base generada el 2026-11-15 desde Gamerch (lista de "principales" lugares; cada fila termina en "…など",
 // o sea que NO es exhaustiva): https://gamerch.com/wizardry-daphne/913125
+// Nombres en inglés: el compendio del propio juego (lista que pasó el usuario, transcrita con OCR de Gemini,
+// puede tener errores) cruzado por número de bestiario con Gamerch; los de monstruos que el usuario aún no ha
+// visto salen de la wiki en inglés (wiki.gg) o de la guía de fasterthoughts.io.
 // Más adiciones manuales: guía https://wizardry.fasterthoughts.io (exámenes, Dens), Wikiwiki (pixies) y
 // lo que el usuario ha visto jugando (esqueletos en el Lead Exam).
 //
 // Se mantiene A MANO a partir de ahora: para agregar o corregir un monstruo, edita su entrada.
 //  jp / en     nombre japonés / global (probable:true = el inglés es una deducción sin confirmar)
+//  no          número de bestiario (compendio), si se conoce
+//  v           variantes con otro nombre (por elemento o nivel: Red Goblin, Earth Slime...)
 //  raza        id de una raza de data.js (null = la fuente no la indica)
 //  especial    true = monstruo importante (jefe, etc.), no un enemigo común
 //  lugares     misma forma que en data.js (jp, en, etapa, tipo, examen, nota)
@@ -35,12 +40,15 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
+  ],
+  "no": 1,
+  "v": [
+   "Red Goblin"
   ]
  },
  {
   "jp": "ゴブリンアーチャー",
   "en": "Goblin Archer",
-  "probable": true,
   "raza": "subhumano",
   "lugares": [
    {
@@ -62,12 +70,15 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
+  ],
+  "no": 3,
+  "v": [
+   "Red Goblin Archer"
   ]
  },
  {
   "jp": "ゴブリンメイジ",
   "en": "Goblin Mage",
-  "probable": true,
   "raza": "subhumano",
   "lugares": [
    {
@@ -89,12 +100,15 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
+  ],
+  "no": 4,
+  "v": [
+   "Red Goblin Mage"
   ]
  },
  {
   "jp": "ゴブリンクレリック",
   "en": "Goblin Cleric",
-  "probable": true,
   "raza": "subhumano",
   "lugares": [
    {
@@ -116,6 +130,10 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
+  ],
+  "no": 5,
+  "v": [
+   "Red Goblin Cleric"
   ]
  },
  {
@@ -148,12 +166,17 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
+  ],
+  "no": 2,
+  "v": [
+   "Earth Hobgoblin",
+   "Elite Hobgoblin",
+   "Red Hobgoblin"
   ]
  },
  {
   "jp": "スケルトン",
   "en": "Skeleton",
-  "probable": true,
   "raza": "no-muerto",
   "lugares": [
    {
@@ -171,12 +194,12 @@ window.MONSTRUOS = [
     "examen": 1,
     "nota": "El jefe es un no-muerto y cada pocas rondas invoca enemigos extra, entre ellos esqueletos (según tu experiencia)"
    }
-  ]
+  ],
+  "no": 11
  },
  {
   "jp": "スケルトンアーチャー",
   "en": "Skeleton Archer",
-  "probable": true,
   "raza": "no-muerto",
   "lugares": [
    {
@@ -186,7 +209,8 @@ window.MONSTRUOS = [
     "tipo": "abismo",
     "nota": "Piso/zona: B7F"
    }
-  ]
+  ],
+  "no": 12
  },
  {
   "jp": "スケルトンメイジ",
@@ -200,12 +224,12 @@ window.MONSTRUOS = [
     "tipo": "abismo",
     "nota": "Piso/zona: B7F"
    }
-  ]
+  ],
+  "no": 13
  },
  {
   "jp": "スケルトンナイト",
   "en": "Skeleton Knight",
-  "probable": true,
   "raza": "no-muerto",
   "lugares": [
    {
@@ -215,7 +239,8 @@ window.MONSTRUOS = [
     "tipo": "abismo",
     "nota": "Piso/zona: B7F"
    }
-  ]
+  ],
+  "no": 14
  },
  {
   "jp": "ポルターガイスト",
@@ -228,7 +253,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 60
  },
  {
   "jp": "ワイト",
@@ -241,12 +267,12 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 61
  },
  {
   "jp": "スケルトンジャイアント",
   "en": "Skeleton Giant",
-  "probable": true,
   "raza": "no-muerto",
   "lugares": [
    {
@@ -255,7 +281,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 62
  },
  {
   "jp": "ネクロコア",
@@ -277,7 +304,8 @@ window.MONSTRUOS = [
     "examen": 5,
     "nota": "Es el jefe (sala norte-central)"
    }
-  ]
+  ],
+  "no": 1013
  },
  {
   "jp": "スライム",
@@ -313,6 +341,12 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
+  ],
+  "no": 7,
+  "v": [
+   "Earth Slime",
+   "Fire Slime",
+   "Water Slime"
   ]
  },
  {
@@ -344,6 +378,11 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
+  ],
+  "no": 9,
+  "v": [
+   "Earth Gas Cloud",
+   "Fire Cloud"
   ]
  },
  {
@@ -369,7 +408,9 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 15,
+  "en": "Flying Sword"
  },
  {
   "jp": "ミミック",
@@ -405,7 +446,8 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 16
  },
  {
   "jp": "ビッグスライム",
@@ -448,6 +490,11 @@ window.MONSTRUOS = [
     "tipo": "den",
     "nota": "Mini jefe junto al portal"
    }
+  ],
+  "no": 29,
+  "v": [
+   "Dark Big Slime",
+   "Earth Big Slime"
   ]
  },
  {
@@ -460,7 +507,9 @@ window.MONSTRUOS = [
     "etapa": 2,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 30,
+  "en": "Creeping Crud"
  },
  {
   "jp": "クリーピングコイン",
@@ -485,6 +534,10 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "den"
    }
+  ],
+  "no": 31,
+  "v": [
+   "Earth Creeping Coins"
   ]
  },
  {
@@ -498,7 +551,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 52
  },
  {
   "jp": "奈落蟲",
@@ -523,12 +577,16 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "den"
    }
+  ],
+  "no": 8,
+  "v": [
+   "Desert Insect",
+   "Volcano Insect"
   ]
  },
  {
   "jp": "フライ",
-  "en": "Fly",
-  "probable": true,
+  "en": "Dragon Fly",
   "raza": "insecto",
   "lugares": [
    {
@@ -543,6 +601,11 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "den"
    }
+  ],
+  "no": 54,
+  "v": [
+   "Desert Fly",
+   "Flame Fly"
   ]
  },
  {
@@ -551,9 +614,10 @@ window.MONSTRUOS = [
   "raza": "planta",
   "lugares": [
    {
-    "jp": "草原",
+    "jp": "ヴァレオン大草原",
     "etapa": null,
-    "tipo": null
+    "tipo": null,
+    "en": "Valeon Grasslands"
    },
    {
     "jp": "",
@@ -570,7 +634,8 @@ window.MONSTRUOS = [
     "tipo": "den",
     "nota": "Jefe final del den"
    }
-  ]
+  ],
+  "no": 1011
  },
  {
   "jp": "ピクシー",
@@ -636,6 +701,11 @@ window.MONSTRUOS = [
     "tipo": "evento",
     "nota": "3 pixies"
    }
+  ],
+  "no": 44,
+  "v": [
+   "Earth Pixie",
+   "Fire Pixie"
   ]
  },
  {
@@ -643,9 +713,10 @@ window.MONSTRUOS = [
   "raza": "espiritu",
   "lugares": [
    {
-    "jp": "草原",
+    "jp": "ヴァレオン大草原",
     "etapa": null,
-    "tipo": null
+    "tipo": null,
+    "en": "Valeon Grasslands"
    },
    {
     "jp": "魔術師の試練",
@@ -664,6 +735,12 @@ window.MONSTRUOS = [
     "etapa": null,
     "tipo": null
    }
+  ],
+  "no": 45,
+  "en": "Air Entity",
+  "v": [
+   "Dark Entity",
+   "Fire Entity"
   ]
  },
  {
@@ -676,7 +753,9 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 18,
+  "en": "Novice Fighter"
  },
  {
   "jp": "獣人盗賊",
@@ -688,7 +767,9 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 19,
+  "en": "Novice Beast Thief"
  },
  {
   "jp": "ドワーフ僧侶",
@@ -700,7 +781,9 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 20,
+  "en": "Novice Dwarf Priest"
  },
  {
   "jp": "エルフ魔術師",
@@ -712,7 +795,9 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 21,
+  "en": "Novice Elf Mage"
  },
  {
   "jp": "不機嫌な冒険者",
@@ -724,7 +809,9 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 23,
+  "en": "Snippy Adventurer"
  },
  {
   "jp": "エルフ戦士",
@@ -748,7 +835,9 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "den"
    }
-  ]
+  ],
+  "no": 39,
+  "en": "Average Elf Fighter"
  },
  {
   "jp": "ドワーフ戦士",
@@ -766,7 +855,9 @@ window.MONSTRUOS = [
     "etapa": null,
     "tipo": "evento"
    }
-  ]
+  ],
+  "no": 40,
+  "en": "Average Dwarf Fighter"
  },
  {
   "jp": "盗賊",
@@ -784,7 +875,9 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "den"
    }
-  ]
+  ],
+  "no": 41,
+  "en": "Average Thief"
  },
  {
   "jp": "魔術師",
@@ -802,7 +895,9 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "den"
    }
-  ]
+  ],
+  "no": 42,
+  "en": "Average Mage"
  },
  {
   "jp": "騎士",
@@ -820,7 +915,9 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "den"
    }
-  ]
+  ],
+  "no": 43,
+  "en": "Average Knight"
  },
  {
   "jp": "手練れの盗賊",
@@ -832,7 +929,9 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 63,
+  "en": "Skilled Thief"
  },
  {
   "jp": "僧侶",
@@ -844,7 +943,8 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "den"
    }
-  ]
+  ],
+  "no": 10143
  },
  {
   "jp": "バンデット",
@@ -862,6 +962,11 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "den"
    }
+  ],
+  "no": 6,
+  "en": "Bandit",
+  "v": [
+   "Zealot Bandit"
   ]
  },
  {
@@ -874,7 +979,9 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 22,
+  "en": "Ruffian"
  },
  {
   "jp": "フットパッド",
@@ -887,11 +994,14 @@ window.MONSTRUOS = [
     "tipo": "abismo"
    },
    {
-    "jp": "大草原",
+    "jp": "ヴァレオン大草原",
     "etapa": null,
-    "tipo": null
+    "tipo": null,
+    "en": "Valeon Grasslands"
    }
-  ]
+  ],
+  "no": 34,
+  "en": "Footpad"
  },
  {
   "jp": "パイレートバーサーカー",
@@ -903,7 +1013,9 @@ window.MONSTRUOS = [
     "etapa": 2,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 37,
+  "en": "Pirate Berserker"
  },
  {
   "jp": "パイレートディーコン",
@@ -921,7 +1033,9 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "den"
    }
-  ]
+  ],
+  "no": 38,
+  "en": "Pirate Deacon"
  },
  {
   "jp": "ネクロマンサー",
@@ -933,7 +1047,9 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 59,
+  "en": "Necromancer"
  },
  {
   "jp": "忍者",
@@ -953,6 +1069,12 @@ window.MONSTRUOS = [
     "etapa": null,
     "tipo": "evento"
    }
+  ],
+  "no": 111,
+  "en": "Ninja",
+  "v": [
+   "Amber Ninja",
+   "Indigo Ninja"
   ]
  },
  {
@@ -965,7 +1087,8 @@ window.MONSTRUOS = [
     "etapa": null,
     "tipo": "evento"
    }
-  ]
+  ],
+  "no": 1017
  },
  {
   "jp": "荒くれ者ボス",
@@ -978,7 +1101,8 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 1002
  },
  {
   "jp": "ボーパルバニー",
@@ -1012,18 +1136,19 @@ window.MONSTRUOS = [
     "examen": 1,
     "nota": "Salen entre los enemigos extra con los que empieza el jefe; huir reinicia el grupo y se pueden repetir hasta que salgan solo conejos (mueren muy rápido)"
    }
-  ]
+  ],
+  "no": 10
  },
  {
   "jp": "ホーク",
-  "en": "Hawk",
-  "probable": true,
+  "en": "Forest Hawk",
   "raza": "bestia",
   "lugares": [
    {
-    "jp": "草原",
+    "jp": "ヴァレオン大草原",
     "etapa": null,
-    "tipo": null
+    "tipo": null,
+    "en": "Valeon Grasslands"
    },
    {
     "jp": "魔窟",
@@ -1037,6 +1162,10 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
+  ],
+  "no": 46,
+  "v": [
+   "Volcano Hawk"
   ]
  },
  {
@@ -1056,12 +1185,15 @@ window.MONSTRUOS = [
     "etapa": null,
     "tipo": "evento"
    }
+  ],
+  "no": 25,
+  "v": [
+   "Earth Sahuagin"
   ]
  },
  {
   "jp": "サハギンアーチャー",
   "en": "Sahuagin Archer",
-  "probable": true,
   "raza": "bestia",
   "lugares": [
    {
@@ -1076,6 +1208,10 @@ window.MONSTRUOS = [
     "etapa": null,
     "tipo": "evento"
    }
+  ],
+  "no": 26,
+  "v": [
+   "Earth Sahuagin Archer"
   ]
  },
  {
@@ -1089,12 +1225,12 @@ window.MONSTRUOS = [
     "etapa": 2,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 27
  },
  {
   "jp": "リザードマン",
   "en": "Lizardman",
-  "probable": true,
   "raza": "bestia",
   "lugares": [
    {
@@ -1109,7 +1245,8 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "den"
    }
-  ]
+  ],
+  "no": 32
  },
  {
   "jp": "リザードマンチャンピオン",
@@ -1127,7 +1264,9 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "den"
    }
-  ]
+  ],
+  "no": 33,
+  "en": "Lizardman Champion"
  },
  {
   "jp": "ミノタウロス",
@@ -1154,7 +1293,8 @@ window.MONSTRUOS = [
     "examen": 4,
     "nota": "Jefe junto a una Succubus"
    }
-  ]
+  ],
+  "no": 35
  },
  {
   "jp": "キメラ",
@@ -1178,7 +1318,8 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "den"
    }
-  ]
+  ],
+  "no": 57
  },
  {
   "jp": "ゴーゴン",
@@ -1190,7 +1331,9 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 58,
+  "en": "Gorgon"
  },
  {
   "jp": "サソリ女",
@@ -1211,7 +1354,8 @@ window.MONSTRUOS = [
     "etapa": null,
     "tipo": "evento"
    }
-  ]
+  ],
+  "no": 1001
  },
  {
   "jp": "大怪鳥",
@@ -1219,11 +1363,13 @@ window.MONSTRUOS = [
   "especial": true,
   "lugares": [
    {
-    "jp": "草原",
+    "jp": "ヴァレオン大草原",
     "etapa": null,
-    "tipo": null
+    "tipo": null,
+    "en": "Valeon Grasslands"
    }
-  ]
+  ],
+  "no": 1012
  },
  {
   "jp": "ビッグスノーホーク",
@@ -1235,7 +1381,8 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 173
  },
  {
   "jp": "ビッグフットチルドレン",
@@ -1248,7 +1395,8 @@ window.MONSTRUOS = [
     "tipo": "abismo",
     "nota": "Piso/zona: Bigfoot Cave"
    }
-  ]
+  ],
+  "no": 174
  },
  {
   "jp": "スノーウルフ",
@@ -1260,7 +1408,8 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 182
  },
  {
   "jp": "ビッグフット",
@@ -1273,7 +1422,8 @@ window.MONSTRUOS = [
     "tipo": "abismo",
     "nota": "Piso/zona: Bigfoot Cave"
    }
-  ]
+  ],
+  "no": 1023
  },
  {
   "jp": "スノーウルフリーダー",
@@ -1285,7 +1435,8 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 1024
  },
  {
   "jp": "呪いの藁人形",
@@ -1298,7 +1449,8 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 17
  },
  {
   "jp": "サキュバス",
@@ -1330,12 +1482,12 @@ window.MONSTRUOS = [
     "examen": 4,
     "nota": "Jefe junto a un Minotaur"
    }
-  ]
+  ],
+  "no": 36
  },
  {
   "jp": "レッサーデーモン",
   "en": "Lesser Demon",
-  "probable": true,
   "raza": "demonio",
   "lugares": [
    {
@@ -1344,7 +1496,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 48
  },
  {
   "jp": "グレーターデーモン",
@@ -1362,7 +1515,8 @@ window.MONSTRUOS = [
     "etapa": null,
     "tipo": null
    }
-  ]
+  ],
+  "no": 49
  },
  {
   "jp": "ヴァンパイア",
@@ -1386,7 +1540,8 @@ window.MONSTRUOS = [
     "etapa": null,
     "tipo": null
    }
-  ]
+  ],
+  "no": 53
  },
  {
   "jp": "サイクロプス",
@@ -1399,7 +1554,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 50
  },
  {
   "jp": "雪山サイクロプス",
@@ -1411,7 +1567,8 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 168
  },
  {
   "jp": "火竜",
@@ -1436,7 +1593,8 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 24
  },
  {
   "jp": "むさぼる大口",
@@ -1449,7 +1607,8 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 1003
  },
  {
   "jp": "エント",
@@ -1462,7 +1621,8 @@ window.MONSTRUOS = [
     "tipo": "abismo",
     "nota": "Piso/zona: del B3F hacia abajo"
    }
-  ]
+  ],
+  "no": 1004
  },
  {
   "jp": "死病のクルー",
@@ -1475,7 +1635,8 @@ window.MONSTRUOS = [
     "etapa": 2,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 1006
  },
  {
   "jp": "オールコレクター",
@@ -1488,7 +1649,8 @@ window.MONSTRUOS = [
     "etapa": 2,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 1007
  },
  {
   "jp": "メルジーナ",
@@ -1501,7 +1663,8 @@ window.MONSTRUOS = [
     "etapa": 2,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 1009
  },
  {
   "jp": "砂の影",
@@ -1513,7 +1676,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 64
  },
  {
   "jp": "石人",
@@ -1525,7 +1689,8 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 176
  },
  {
   "jp": "嘆きの石人",
@@ -1537,7 +1702,8 @@ window.MONSTRUOS = [
     "etapa": 4,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 177
  },
  {
   "jp": "ヘルムート",
@@ -1552,7 +1718,8 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 1005
  },
  {
   "jp": "オクトナラス",
@@ -1565,7 +1732,8 @@ window.MONSTRUOS = [
     "etapa": 2,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 1010
  },
  {
   "jp": "ボルダオン",
@@ -1578,7 +1746,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 1015
  },
  {
   "jp": "ゴーレム",
@@ -1597,7 +1766,8 @@ window.MONSTRUOS = [
     "etapa": null,
     "tipo": null
    }
-  ]
+  ],
+  "no": 56
  },
  {
   "jp": "賭場の見張りB",
@@ -1609,7 +1779,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 117
  },
  {
   "jp": "賭博のサイコロ師",
@@ -1621,7 +1792,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 118
  },
  {
   "jp": "軽薄な賭博師",
@@ -1633,7 +1805,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 120
  },
  {
   "jp": "用心棒",
@@ -1645,7 +1818,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 125
  },
  {
   "jp": "元締めサッチャー",
@@ -1657,7 +1831,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 126
  },
  {
   "jp": "コロージョンアイ",
@@ -1669,7 +1844,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 128
  },
  {
   "jp": "防御型ゴーレム",
@@ -1681,7 +1857,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 130
  },
  {
   "jp": "攻撃型ゴーレム",
@@ -1693,7 +1870,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 131
  },
  {
   "jp": "文無しの冒険者B",
@@ -1705,7 +1883,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 135
  },
  {
   "jp": "顔色の悪い冒険者",
@@ -1717,7 +1896,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 136
  },
  {
   "jp": "排魔の邪教戦士",
@@ -1729,7 +1909,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 138
  },
  {
   "jp": "文無しの冒険者A",
@@ -1741,7 +1922,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 142
  },
  {
   "jp": "闘技場の挑戦者狩り",
@@ -1753,7 +1935,8 @@ window.MONSTRUOS = [
     "etapa": 2,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 143
  },
  {
   "jp": "落ちぶれた騎士",
@@ -1765,7 +1948,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 147
  },
  {
   "jp": "雇われの騎士",
@@ -1777,7 +1961,8 @@ window.MONSTRUOS = [
     "etapa": 1,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 148
  },
  {
   "jp": "魔術師の執念",
@@ -1789,7 +1974,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 150
  },
  {
   "jp": "フゴ",
@@ -1801,7 +1987,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 156
  },
  {
   "jp": "歌姫マリン",
@@ -1814,7 +2001,8 @@ window.MONSTRUOS = [
     "etapa": 2,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 1008
  },
  {
   "jp": "私達の栄華",
@@ -1828,7 +2016,8 @@ window.MONSTRUOS = [
     "etapa": 3,
     "tipo": "abismo"
    }
-  ]
+  ],
+  "no": 1014
  },
  {
   "jp": "死の神モルグス",
@@ -1841,7 +2030,8 @@ window.MONSTRUOS = [
     "etapa": null,
     "tipo": null
    }
-  ]
+  ],
+  "no": 1016
  },
  {
   "jp": "悪魔アグナ",
@@ -1853,6 +2043,7 @@ window.MONSTRUOS = [
     "etapa": null,
     "tipo": null
    }
-  ]
+  ],
+  "no": 1018
  }
 ];
