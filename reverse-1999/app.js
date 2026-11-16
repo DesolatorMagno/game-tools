@@ -74,7 +74,10 @@
     return mejor;
   }
 
-  function afflatusDistintos(ms) { return new Set(ms.map(m => m.a).filter(Boolean)).size; }
+  // Afflatus de un personaje: uno, o dos si es de Afflatus doble.
+  function afls(p) { return [p.a, p.a2].filter(Boolean); }
+  function textoAfl(p, vacio) { return afls(p).join(" + ") || vacio; }
+  function afflatusDistintos(ms) { return new Set(ms.flatMap(afls)).size; }
 
   // ---- pestañas
   const pestanas = document.querySelectorAll(".pestana");
@@ -114,7 +117,7 @@
     b.setAttribute("aria-pressed", tengo.has(p.n) ? "true" : "false");
     b.append(el("span", "nom", p.n));
     const s = el("small");
-    s.append(el("span", "af", p.a || "Afflatus ?"), ` · ${p.d || "daño ?"} · ${p.e}★`);
+    s.append(el("span", "af", textoAfl(p, "Afflatus ?")), ` · ${p.d || "daño ?"} · ${p.e}★`);
     b.append(s);
     b.append(el("small", "", p.r.slice(0, 3).join(", ")));
     if (p.c) b.title = p.c;
@@ -129,7 +132,7 @@
     cb.type = "checkbox"; cb.checked = tengo.has(p.n);
     cb.setAttribute("aria-label", "Tengo a " + p.n);
     td0.append(cb);
-    tr.append(td0, el("td", "nom", p.n), el("td", "", p.e + "★"), el("td", "af", p.a || "?"), el("td", "", p.d || "?"), el("td", "rol", p.r.slice(0, 3).join(", ")));
+    tr.append(td0, el("td", "nom", p.n), el("td", "", p.e + "★"), el("td", "af", textoAfl(p, "?")), el("td", "", p.d || "?"), el("td", "rol", p.r.slice(0, 3).join(", ")));
     if (p.c) tr.title = p.c;
     tr.addEventListener("click", ev => { if (ev.target !== cb) alternar(p); });
     cb.addEventListener("change", () => alternar(p));
@@ -182,7 +185,7 @@
     const q = buscar.value.trim().toLowerCase();
     const lista = PJ.filter(p =>
       (!q || p.n.toLowerCase().includes(q)) &&
-      (!fAff.value || p.a === fAff.value) &&
+      (!fAff.value || afls(p).includes(fAff.value)) &&
       (!fEstado.value || (fEstado.value === "si") === tengo.has(p.n)))
       .sort((x, y) => y.e - x.e || x.n.localeCompare(y.n));
     cuadricula.replaceChildren();
@@ -236,18 +239,18 @@
     caja.append(linea1);
     const cuenta = (f) => {
       const m = new Map();
-      ms.forEach(x => { const k = f(x) || "?"; m.set(k, (m.get(k) || 0) + 1); });
+      ms.forEach(x => { const ks = f(x); (ks.length ? ks : ["?"]).forEach(k => m.set(k, (m.get(k) || 0) + 1)); });
       return [...m].map(([k, v]) => `${k} ×${v}`).join(", ");
     };
-    caja.append(el("div", "meta", "Afflatus: " + cuenta(x => x.a)));
-    caja.append(el("div", "meta", "Daño: " + cuenta(x => x.d)));
+    caja.append(el("div", "meta", "Afflatus: " + cuenta(x => afls(x))));
+    caja.append(el("div", "meta", "Daño: " + cuenta(x => (x.d ? [x.d] : []))));
     return caja;
   }
 
   function tarjetaMiembro(p) {
     const d = el("div", "miembro A-" + p.a);
     d.append(el("div", "nom", p.n));
-    d.append(el("small", "", `${p.a || "Afflatus ?"} · ${p.d || "daño ?"}`));
+    d.append(el("small", "", `${textoAfl(p, "Afflatus ?")} · ${p.d || "daño ?"}`));
     d.append(el("small", "", p.r.join(", ")));
     return d;
   }
@@ -355,7 +358,7 @@
       .sort((a, b) => b.e - a.e || a.n.localeCompare(b.n)).slice(0, 10);
     contFaltas.append(el("p", "meta", `El rol más escaso es «${escaso}». Personajes que no tienes y que lo cubren como rol principal (solo comprueban el rol, no si son buenos):`));
     const ul = el("ul", "lista-simple");
-    candidatos.forEach(p => ul.append(el("li", "", `${p.n} · ${p.e}★ · ${p.a || "Afflatus ?"} · ${p.r.slice(0, 3).join(", ")}`)));
+    candidatos.forEach(p => ul.append(el("li", "", `${p.n} · ${p.e}★ · ${textoAfl(p, "Afflatus ?")} · ${p.r.slice(0, 3).join(", ")}`)));
     contFaltas.append(ul);
   }
   chkEvitar.addEventListener("change", pintarIdeas);

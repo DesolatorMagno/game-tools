@@ -7,6 +7,7 @@
 // Se mantiene A MANO. Campos:
 //  n  nombre            e  estrellas (5 o 6)
 //  a  Afflatus: Beast | Plant | Star | Mineral | Spirit | Intellect  (null = por confirmar)
+//  a2 segundo Afflatus, solo para los de Afflatus doble (The Twins)
 //  d  tipo de daño: Reality | Mental                                 (null = por confirmar)
 //  r  etiquetas de rol tal como las da la fuente; la primera es la principal
 //  c  comentario / qué falta confirmar (opcional)
@@ -77,7 +78,7 @@ window.PERSONAJES = [
   {"n": "Shamane", "e": 6, "a": "Beast", "d": "Reality", "r": ["DPS", "Burst DMG", "Debuff"]},
   {"n": "Sotheby", "e": 6, "a": "Plant", "d": "Reality", "r": ["Poison", "Heal", "DPS"]},
   {"n": "Spathodea", "e": 6, "a": "Beast", "d": "Reality", "r": ["DPS", "Burst DMG", "Burn"]},
-  {"n": "The Twins", "e": 6, "a": null, "d": "Reality", "r": ["DPS", "Conduit"], "c": "Evento Atomic Heart; tiene Afflatus doble y ninguna fuente dice cuáles: completar a mano"},
+  {"n": "The Twins", "e": 6, "a": "Mineral", "a2": "Star", "d": "Reality", "r": ["DPS", "Conduit"], "c": "Evento Atomic Heart. Afflatus doble Mineral + Star según Prydwen (Mineral) y allthings.how (actúa como Star y Mineral); confirmar en el juego"},
   {"n": "Tooth Fairy", "e": 6, "a": "Star", "d": "Mental", "r": ["Heal", "Debuff", "Purify"]},
   {"n": "Tuesday", "e": 6, "a": "Spirit", "d": "Mental", "r": ["Debuff", "Poison", "Support"]},
   {"n": "Ulrich", "e": 6, "a": "Intellect", "d": "Reality", "r": ["Dynamo", "Support", "Extra Action"]},
