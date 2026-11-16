@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reverse: 1999 · Armador de equipos</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <a class="volver" href="../">← Game Tools</a>
+  <h1>Reverse: 1999</h1>
+  <p class="sub">Armador de equipos con mi colección</p>
+</header>
+
+<main>
+  <div class="pestanas" role="tablist">
+    <button type="button" class="pestana" role="tab" data-panel="p-coleccion" aria-selected="true">Mi colección</button>
+    <button type="button" class="pestana" role="tab" data-panel="p-equipos" aria-selected="false">Mis equipos</button>
+    <button type="button" class="pestana" role="tab" data-panel="p-ideas" aria-selected="false">Equipos nuevos</button>
+  </div>
+
+  <section id="p-coleccion" class="panel">
+    <p class="meta" id="resumen-coleccion"></p>
+    <div class="filtros">
+      <input id="buscar" type="search" placeholder="Buscar personaje…" autocomplete="off">
+      <select id="f-afflatus"><option value="">Todos los Afflatus</option></select>
+      <select id="f-estado">
+        <option value="">Tengo y no tengo</option>
+        <option value="si">Solo los que tengo</option>
+        <option value="no">Solo los que me faltan</option>
+      </select>
+    </div>
+    <div id="cuadricula" class="cuadricula"></div>
+    <p class="meta"><button type="button" id="restablecer" class="boton">Restablecer a mi archivo personal</button>
+      Pulsa un personaje para marcarlo como tuyo o no. Se guarda solo en este navegador.</p>
+  </section>
+
+  <section id="p-equipos" class="panel" hidden>
+    <div id="equipos"></div>
+    <button type="button" id="nuevo-equipo" class="boton">+ Agregar equipo</button>
+  </section>
+
+  <section id="p-ideas" class="panel" hidden>
+    <label class="opcion"><input type="checkbox" id="evitar" checked> Sin repetir personajes de mis equipos actuales</label>
+    <div id="ideas"></div>
+    <div id="faltas"></div>
+  </section>
+</main>
+
+<footer>
+  <p>Datos de personajes: <a href="https://hostedgg.com/wiki/reverse-1999/">HostedGG</a> y guías de fans (ver <a href="../FUENTES.md">FUENTES.md</a>).
+  Las sugerencias solo comprueban que el equipo cubra daño, apoyo y sostén según las etiquetas de la fuente; no miden qué tan bien funcionan juntos.
+  Tu colección vive en tu navegador y en <code>mis-personajes.js</code> (no se sube a GitHub).</p>
+</footer>
+
+<script src="data.js"></script>
+<script src="mis-personajes.js" onerror="window.MIS = null"></script>
+<script src="app.js"></script>
+</body>
+</html>
