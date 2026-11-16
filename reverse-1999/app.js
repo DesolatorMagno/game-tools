@@ -74,10 +74,11 @@
     return mejor;
   }
 
-  // Afflatus de un personaje: uno, o dos si es de Afflatus doble.
+  // Afflatus de un personaje: el principal y, si cambia según el equipamiento, el alternativo.
   function afls(p) { return [p.a, p.a2].filter(Boolean); }
-  function textoAfl(p, vacio) { return afls(p).join(" + ") || vacio; }
-  function afflatusDistintos(ms) { return new Set(ms.flatMap(afls)).size; }
+  function textoAfl(p, vacio) { return p.a2 ? `${p.a} / ${p.a2} (según el set)` : (p.a || vacio); }
+  // En un equipo solo cuenta el Afflatus principal: el alternativo no está activo a la vez.
+  function afflatusDistintos(ms) { return new Set(ms.map(m => m.a).filter(Boolean)).size; }
 
   // ---- pestañas
   const pestanas = document.querySelectorAll(".pestana");
@@ -242,7 +243,7 @@
       ms.forEach(x => { const ks = f(x); (ks.length ? ks : ["?"]).forEach(k => m.set(k, (m.get(k) || 0) + 1)); });
       return [...m].map(([k, v]) => `${k} ×${v}`).join(", ");
     };
-    caja.append(el("div", "meta", "Afflatus: " + cuenta(x => afls(x))));
+    caja.append(el("div", "meta", "Afflatus: " + cuenta(x => (x.a ? [x.a] : []))));
     caja.append(el("div", "meta", "Daño: " + cuenta(x => (x.d ? [x.d] : []))));
     return caja;
   }

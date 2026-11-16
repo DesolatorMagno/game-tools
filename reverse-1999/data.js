@@ -7,7 +7,8 @@
 // Se mantiene A MANO. Campos:
 //  n  nombre            e  estrellas (5 o 6)
 //  a  Afflatus: Beast | Plant | Star | Mineral | Spirit | Intellect  (null = por confirmar)
-//  a2 segundo Afflatus, solo para los de Afflatus doble confirmado (ninguno por ahora; la app lo soporta)
+//  a2 Afflatus alternativo, para los que cambian de Afflatus según el equipamiento (The Twins).
+//     Se muestra como «a / a2», cuenta en los filtros, pero la variedad del equipo solo cuenta `a`.
 //  d  tipo de daño: Reality | Mental                                 (null = por confirmar)
 //  r  etiquetas de rol tal como las da la fuente; la primera es la principal
 //  c  comentario / qué falta confirmar (opcional)
@@ -78,7 +79,7 @@ window.PERSONAJES = [
   {"n": "Shamane", "e": 6, "a": "Beast", "d": "Reality", "r": ["DPS", "Burst DMG", "Debuff"]},
   {"n": "Sotheby", "e": 6, "a": "Plant", "d": "Reality", "r": ["Poison", "Heal", "DPS"]},
   {"n": "Spathodea", "e": 6, "a": "Beast", "d": "Reality", "r": ["DPS", "Burst DMG", "Burn"]},
-  {"n": "The Twins", "e": 6, "a": "Mineral", "d": "Reality", "r": ["DPS", "Conduit"], "c": "Evento Atomic Heart. Prydwen lo clasifica solo como Mineral, tipo Reality, clase Damage. Otra guía (allthings.how) dice que sus Psychubes lo cuentan también como Star; no está confirmado como segundo Afflatus"},
+  {"n": "The Twins", "e": 6, "a": "Mineral", "a2": "Star", "d": "Reality", "r": ["DPS", "Conduit"], "c": "Evento Atomic Heart. Cambian entre Mineral (Set A) y Star (Set B) según el set equipado en combate; no son los dos a la vez. Son DPS Reality de clase Damage. Fuente: texto de la página de Prydwen pegado por el usuario"},
   {"n": "Tooth Fairy", "e": 6, "a": "Star", "d": "Mental", "r": ["Heal", "Debuff", "Purify"]},
   {"n": "Tuesday", "e": 6, "a": "Spirit", "d": "Mental", "r": ["Debuff", "Poison", "Support"]},
   {"n": "Ulrich", "e": 6, "a": "Intellect", "d": "Reality", "r": ["Dynamo", "Support", "Extra Action"]},
