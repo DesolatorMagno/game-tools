@@ -6,6 +6,7 @@ Son sitios estáticos (HTML, CSS y JS sin build ni dependencias).
 
 ## Juegos
 
+- [`reverse-1999/`](reverse-1999/): Reverse: 1999. Marca los personajes que tienes, revisa tus equipos y mira qué equipos nuevos puedes armar y qué rol te falta. Tu colección es personal y no se sube (ver `mis-personajes.ejemplo.js`).
 - [`wizardry-daphne/`](wizardry-daphne/): Wizardry Variants Daphne (versión global). Dado un tipo de monstruo, o un monstruo concreto, indica dónde cazarlo, filtrando por tu progreso en la historia y por los exámenes de grado aprobados.
 
 ## Ver el sitio
